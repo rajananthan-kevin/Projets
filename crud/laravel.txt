@@ -1,0 +1,40 @@
+composer create-project --prefer-dist laravel/laravel crud  (creation projet)
+
+quand on commence projet laravel aller dans providers => Appservice provider =>
+
+<?php
+
+namespace App\Providers;
+
+use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\Schema;
+
+class AppServiceProvider extends ServiceProvider
+{
+    /**
+     * Register any application services.
+     *
+     * @return void
+     */
+    public function register()
+    {
+        //
+    }
+
+    /**
+     * Bootstrap any application services.
+     *
+     * @return void
+     */
+    public function boot()
+    {
+        Schema::defaultStringLength(191);
+    }
+}
+
+php artisan make:migration create_project_table (creation d'une table)
+php artisan migrate (à faire juste après avoir créer une table)
+php artisan make:model Project (créer un model)
+php artisan make:controller ProjectController(créer un controller)
+php artisan migrate:refresh (supprimer et recree les tables)
+php artisan serve (server)
